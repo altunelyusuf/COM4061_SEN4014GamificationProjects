@@ -1,0 +1,113 @@
+{
+ "teamId": "TM-7CA4F38FE764",
+ "gameId": null,
+ "title": "Dungeon of System",
+ "courseCode": "COM4061",
+ "members": [
+  {
+   "id": "2200003305",
+   "name": "Ahmet Recep Özdemir\tLeader"
+  },
+  {
+   "id": "2200002628",
+   "name": "Aysun Yılmaz"
+  },
+  {
+   "id": "2200005202",
+   "name": "Yiğit Talha Dinç\tMember"
+  },
+  {
+   "id": "2000001081",
+   "name": "Atakan Chiftlik"
+  },
+  {
+   "id": "2200005188",
+   "name": "Samet Aktaş"
+  },
+  {
+   "id": "2200004278",
+   "name": "Esra Kaya"
+  },
+  {
+   "id": "2200004263",
+   "name": "Buse Baydilli"
+  },
+  {
+   "id": "2200004466",
+   "name": "Irmak Tarhan"
+  }
+ ],
+ "memberRoles": [
+  {
+   "id": "2200003305",
+   "name": "Ahmet Recep Özdemir\tLeader",
+   "role": ""
+  },
+  {
+   "id": "2200002628",
+   "name": "Aysun Yılmaz",
+   "role": "Member"
+  },
+  {
+   "id": "2200005202",
+   "name": "Yiğit Talha Dinç\tMember",
+   "role": ""
+  },
+  {
+   "id": "2000001081",
+   "name": "Atakan Chiftlik",
+   "role": "Member"
+  },
+  {
+   "id": "2200005188",
+   "name": "Samet Aktaş",
+   "role": "Member"
+  },
+  {
+   "id": "2200004278",
+   "name": "Esra Kaya",
+   "role": "Member"
+  },
+  {
+   "id": "2200004263",
+   "name": "Buse Baydilli",
+   "role": "Member"
+  },
+  {
+   "id": "2200004466",
+   "name": "Irmak Tarhan",
+   "role": "Member"
+  }
+ ],
+ "proposalState": null,
+ "source": {
+  "srcFiles": 0,
+  "sceneFiles": 0,
+  "codeKB": 0,
+  "assets": 0,
+  "contentK": 0,
+  "buildable": "no",
+  "quizSignals": 7,
+  "teachSignals": 5,
+  "leaderboardCode": [
+   "README.txt"
+  ],
+  "backend": [
+   "https://github.com/LitePrex/Dungeon_Of_System"
+  ]
+ },
+ "engines": [],
+ "buildArtifacts": [],
+ "deployStatus": "itch.io",
+ "hasRuntimeScores": true,
+ "deliveryCoverage": null,
+ "fileCount": 4,
+ "provenance": {
+  "packagePath": "(local) C:\\Users\\yusuf.altunel\\OneDrive - LC WAIKIKI MAGAZACILIK HIZMETLERI TIC.A.S\\Ontology\\GamificationOntologies\\GPAF-Gamification Project Assessment Framework\\Submissions\\FinalSubmissions\\COM4061_SEN4014\\Team-TM-7CA4F38FE764-Final_Dungeon-of-System",
+  "extractor": "extract_dungeon_v1_0_1.py",
+  "sourceFrom": "local-unpack"
+ },
+ "warnings": [
+  "no-readable-source (build-only export; signals from binary strings)"
+ ]
+}
