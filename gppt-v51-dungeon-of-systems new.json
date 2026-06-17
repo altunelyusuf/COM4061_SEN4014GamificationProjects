@@ -1,0 +1,1276 @@
+{
+  "gppt_version": "v51",
+  "export_date": "2026-06-09T07:41:53.293Z",
+  "redo_version": "2.4.6",
+  "originality": {
+    "score": 84,
+    "closestMatch": "[COM4061] Database Quest",
+    "closestSimilarity": 16,
+    "isPlagiarismRisk": false
+  },
+  "state": {
+    "step": 13,
+    "totalSteps": 13,
+    "domain": "edu",
+    "projectType": "Serious Game",
+    "projectTitle": "Dungeon of Systems",
+    "teamName": "The Analyzers",
+    "proposer": "Ahmet Recep Özdemir",
+    "organisation": "Istanbul Kultur University",
+    "targetPopulation": "COM4061",
+    "sampleSize": "30",
+    "problemStatement": "Static diagram exercises in Systems Analysis and Design courses can reduce engagement when students repeatedly solve similar tasks in non-interactive formats. In this project context, learners are expected to understand at least 4 major diagram types and apply them across 3 different system scenarios, which can create difficulty in maintaining motivation and connecting concepts across tasks. To address this, the proposed gamification project converts diagram practice into a serious game with progressive challenges, exploration, and system restoration mechanics. The target is for players to complete at least 80% of required puzzle tasks in a guided session and experience clearer progress through visual and score-based feedback.",
+    "startDate": "2026-04-06",
+    "proposalDate": "2026-03-23",
+    "courseCode": "COM4061",
+    "deliverableArea": "Custom (describe below)",
+    "deliverableAreas": [
+      "Custom (describe below)"
+    ],
+    "inScope": [
+      "Three main scenarios: Café Order System, School Management System, and Clinic Appointment System",
+      "A top-down dark exploration environment with limited player visibility",
+      "Four core puzzle room types in each scenario: Use Case, Class/Domain, Sequence, and Database",
+      "One boss restoration stage at the end of each scenario",
+      "Score tracking, rank progression, room illumination, and basic hint support",
+      "Basic gameplay logging such as completed rooms, score changes, and hint usage"
+    ],
+    "outScope": [
+      "Real-time multiplayer gameplay",
+      "Full professional UML diagram drawing tools",
+      "Integration with real institutional systems or live external databases",
+      "AR/VR support",
+      "Open-ended AI-generated diagrams from free-text prompts",
+      "Large-scale open world exploration beyond the defined scenario structure"
+    ],
+    "frs": [
+      {
+        "id": "FR1",
+        "desc": "The system shall allow the player to navigate a top-down dark environment with a limited light radius and discover puzzle rooms.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR2",
+        "desc": "The system shall present diagram-based puzzle rooms for Use Case, Class/Domain, Sequence, and Database tasks in each scenario.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR3",
+        "desc": "The system shall validate player answers, provide immediate feedback, and unlock the related room when the puzzle is solved correctly.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR4",
+        "desc": "The system shall visually restore completed rooms by changing them from dark to illuminated state after successful puzzle completion.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR5",
+        "desc": "The system shall unlock a boss restoration challenge after the required core rooms and system fragments are completed.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR6",
+        "desc": "The system shall track player score, rank progression, completed rooms, hint usage, and scenario completion status.",
+        "priority": "Should"
+      },
+      {
+        "id": "FR7",
+        "desc": "The system shall provide contextual clues and limited hint support to help players continue when they struggle with a puzzle.",
+        "priority": "Should"
+      },
+      {
+        "id": "FR8",
+        "desc": "The system could adapt hint recommendations based on player mistakes or repeated failed attempts.",
+        "priority": "Could"
+      },
+      {
+        "id": "FR9",
+        "desc": "The system won’t include synchronous multiplayer competition in the first project version.",
+        "priority": "Won't"
+      }
+    ],
+    "nfrs": [
+      {
+        "id": "NFR1",
+        "attr": "Usability",
+        "desc": "First-time players should understand the basic objective, movement, and room interaction without needing continuous facilitator support.",
+        "target": "At least 80% of first-time test users should reach the first puzzle room within 2 minutes after the tutorial."
+      },
+      {
+        "id": "NFR2",
+        "attr": "Usability",
+        "desc": "The game should respond quickly during navigation, puzzle interaction, and answer validation.",
+        "target": "Scene or room transitions should complete within 3 seconds, and puzzle validation feedback should appear within 1 second."
+      },
+      {
+        "id": "NFR3",
+        "attr": "Usability",
+        "desc": "Critical game information should not depend only on color and should remain readable in a dark environment.",
+        "target": "All key interactive elements should use both icon + text or icon + shape cues, and all essential UI text should remain readable at normal play distance."
+      },
+      {
+        "id": "NFR4",
+        "attr": "Usability",
+        "desc": "Player progression should not be lost when moving between rooms or if the session closes unexpectedly.",
+        "target": "Progress should be saved after each completed room, and the player should return to the latest completed checkpoint on reload."
+      },
+      {
+        "id": "NFR5",
+        "attr": "Usability",
+        "desc": "The prototype should store only necessary gameplay data and avoid collecting unnecessary personal information.",
+        "target": "The system should store only nickname/player ID, progress, score, and gameplay logs, with no sensitive personal data required for normal play."
+      }
+    ],
+    "successCriteria": [
+      "Players can complete all 3 scenarios from beginning to end in a stable playable build.",
+      "Each scenario includes 4 core diagram rooms and 1 boss restore room that function correctly.",
+      "The game records score, hint usage, room completion, and rank progression without data loss during normal play.",
+      "At least 80% of pilot users can complete the first scenario after tutorial guidance.",
+      "Players can clearly distinguish progress through illuminated rooms, unlocked boss stages, and rank advancement.",
+      "The final design demonstrates a meaningful connection between course concepts and game mechanics rather than using gamification only as decoration."
+    ],
+    "userStories": [
+      {
+        "role": "Junior Analyst",
+        "want": "solve a diagram room and see that room become illuminated",
+        "soThat": "I can feel visible progress while restoring the system",
+        "acc": "When the correct answer is submitted, the room unlocks. The room changes from dark to illuminated. The player receives score feedback. The progress tracker updates."
+      },
+      {
+        "role": "player",
+        "want": "collect system fragments from completed rooms",
+        "soThat": "I can unlock the boss room and restore the full system",
+        "acc": "Each required room grants a fragment or core progress item. The game shows boss unlock progress. The boss room opens only after required fragments are collected."
+      },
+      {
+        "role": "player who struggles with a puzzle",
+        "want": "use a limited contextual hint",
+        "soThat": "I can continue learning without becoming stuck for too long",
+        "acc": "Hints are available only in limited form. Hint usage is logged. A hint reveals partial help rather than the full solution. Score or bonus outcome may be reduced after hint use."
+      },
+      {
+        "role": "returning player",
+        "want": "keep my completed rooms, score, and rank",
+        "soThat": "I can continue from where I left off and improve my overall performance",
+        "acc": "Completed rooms remain completed after reopening the game. Rank and score persist. The player resumes from the latest valid checkpoint."
+      }
+    ],
+    "theories": [
+      "sdt",
+      "mda",
+      "bloom",
+      "flow",
+      "hexad"
+    ],
+    "playerTypes": {
+      "achiever": 25,
+      "explorer": 25,
+      "socialiser": 25,
+      "killer": 25
+    },
+    "hexad": {
+      "socialiser": 10,
+      "player": 20
+    },
+    "octalysis": {},
+    "mechanics": [
+      "pts",
+      "badge",
+      "quest",
+      "lvl",
+      "pb",
+      "chal",
+      "feed",
+      "board",
+      "role"
+    ],
+    "sixDim": {
+      "what": "Progression and feedback mechanics\n\nPoints, progress bars, levels, and immediate feedback are used to make learning progress visible and meaningful. Each solved room gives the player a clear sense of advancement through score gain, room restoration, and rank progression from Junior Analyst to higher roles. This supports structured mastery without requiring overly complex reward systems.\n\nMission and challenge mechanics\n\nQuests, challenges, and boss stages are used to turn diagram-solving into goal-oriented gameplay rather than isolated academic exercises. Each room functions as a focused mission based on a Systems Analysis and Design artefact, while each boss room integrates earlier tasks into a larger system restoration challenge. This keeps the gameplay aligned with both course learning outcomes and increasing difficulty.\n\nSpatial and identity mechanics\n\nThe game board/map and role mechanics are central to the experience because the player explores a dark scenario world as an analyst restoring broken systems. The map structure supports discovery, clue collection, and room-by-room progression, while the analyst role connects the game fantasy directly to the course theme. This helps the player feel like an active problem-solver instead of a passive quiz-taker.\n\nRecognition mechanics\n\nBadges and a lightweight leaderboard can be used to reward achievement without making competition the only source of motivation. Badges recognise milestone accomplishments such as completing a scenario or restoring a full system, while leaderboard use should remain category-based and optional to avoid discouraging lower-performing students. The emphasis stays on mastery and visible recovery rather than raw competition alone.",
+      "why": "Player motivation is primarily justified through Self-Determination Theory, Flow Theory, MDA Framework, and Bloom’s Taxonomy. Through the SDT lens, the game supports autonomy by allowing players to explore, inspect clues, and choose when to use limited hints; competence through progressive diagram challenges, immediate feedback, and rank advancement; and relatedness through classroom discussion, peer comparison, and shared reflection after play. Flow Theory supports the design through clear room-by-room goals, progressively increasing challenge from Café to School to Clinic scenarios, and limited hint systems that reduce frustration without removing difficulty.\n\nFrom the MDA perspective, mechanics such as exploration, locked puzzle rooms, clues, boss restoration stages, and score progression create dynamics of discovery, mastery, and integrated system thinking. These dynamics are intended to produce aesthetics of challenge, accomplishment, clarity, and restoration. Bloom’s Taxonomy further justifies the design because players do not only remember concepts; they apply, analyse, and eventually evaluate system artefacts across increasingly complex scenarios.",
+      "who": "The primary target audience is students enrolled in a Systems Analysis and Design course, especially learners who benefit from structured progression, visual feedback, and applied problem-solving. Using the HEXAD framework, the target audience is expected to be mainly Achiever-oriented, while also including Free Spirits and Players who respond to exploration, discovery, and visible rewards.",
+      "when": "The game is designed to fit into weekly course use, either as an in-class guided activity or as a follow-up practice tool outside class. Each scenario is structured as a compact progression loop with four core rooms and one boss stage, making it suitable for short guided sessions rather than long uninterrupted play. The pacing moves from simpler to more complex systems, allowing students to build confidence in early stages before facing more integrated challenges later.",
+      "how": "To prevent pointsification, all rewards are tied to meaningful learning actions such as solving diagram puzzles, interpreting clues, and completing system restoration tasks rather than logging in or clicking through content. To avoid punishing failure, incorrect answers do not permanently block progress; instead, players receive feedback, may retry, or can use limited hints. To reduce exclusionary competition, leaderboard use is optional and should recognise multiple categories such as completion, consistency, or puzzle mastery instead of rewarding only the highest total score.\n\nThe design also avoids engagement addiction by using transparent goals, finite scenarios, and clear completion conditions rather than exploitative variable reward loops. Privacy risks are reduced by collecting only necessary gameplay data such as player ID, room completion, score changes, and hint usage. The game is designed as an educational serious game, so fairness, clarity, and learning value take priority over intense competition or manipulative retention design.",
+      "where": "The project is primarily designed as a digital serious game with a top-down 2D dungeon structure, making Unity a suitable platform for prototyping exploration, room transitions, and puzzle interactions. The game can be used in a classroom setting as a guided instructional activity or individually as a practice tool outside class. This makes the project flexible enough for both formal teaching sessions and self-paced reinforcement of Systems Analysis and Design concepts."
+    },
+    "narrativeTheme": "Restoration is a dark top-down dungeon world in which broken real-world systems have collapsed into corrupted archives, and the player must restore them by solving analysis and design challenges.",
+    "narrativeArc": "Hero's Journey (departure → trials → return)",
+    "characters": "Player Character — Arin, the Junior Analyst\nThe main playable character who explores broken system worlds, gathers clues, solves diagram-based seals, and restores corrupted archives.\nNPC Coach — Archivist Luma\nA guide figure who explains the mission, gives light contextual hints, and frames each scenario as a real system recovery task.\nAntagonist Challenge — The Corruption Core\nThe force that has fragmented each system into locked rooms, broken flows, and disconnected structures; it is represented through boss chambers and puzzle barriers rather than a traditional villain.",
+    "storyWorld": "The story takes place inside the System Archive, a symbolic digital repository where real-world systems are preserved as interactive worlds. When corruption spreads, these systems collapse into dark dungeon-like environments filled with sealed doors, fragmented logic, and broken information flow. Each restored room brings light back into the world, visually representing recovered structure, understanding, and functionality. The setting combines educational system design concepts with a mysterious but readable fantasy-tech atmosphere.",
+    "conceptMappings": [
+      {
+        "concept": "Understand system actors and user goals through Use Case thinking",
+        "mechanic": "Locked Use Case puzzle room",
+        "dynamic": "Players inspect clues, identify actors, and match goals before opening the room",
+        "aesthetic": "Discovery & clarity",
+        "rationale": "Use Case modelling is naturally represented as unlocking a sealed interaction layer of the system because it focuses on who uses the system and for what purpose"
+      },
+      {
+        "concept": "Model entities, classes, and relationships in a system",
+        "mechanic": "Class/Domain puzzle room with missing fragments",
+        "dynamic": "Players connect objects and relationships, sometimes revisiting earlier rooms to retrieve key fragments",
+        "aesthetic": "Structure & mastery",
+        "rationale": "Class/domain modelling is authentically represented through reconstruction because the learner must organise system parts into a meaningful whole"
+      },
+      {
+        "concept": "Understand process order and interaction flow",
+        "mechanic": "Sequence puzzle room",
+        "dynamic": "Players arrange steps in the correct order and observe how one action affects the next",
+        "aesthetic": "Logic & progression",
+        "rationale": "Sequence diagrams are well represented by ordering mechanics because they require the learner to reason through temporal interaction flow"
+      },
+      {
+        "concept": "Design data structure and system persistence",
+        "mechanic": "Database puzzle room",
+        "dynamic": "Players link entities/tables and determine appropriate relationships",
+        "aesthetic": "Control & completion",
+        "rationale": "Database design fits a connection-based puzzle because the learner must build the stable underlying structure that supports the visible system behaviour"
+      },
+      {
+        "concept": "Integrate multiple artefacts into one operational system",
+        "mechanic": "Boss restoration chamber",
+        "dynamic": "Players combine previously solved components into a final restored system core",
+        "aesthetic": "Accomplishment & restoration",
+        "rationale": "Final system integration is best represented through a boss challenge because real design work requires combining multiple correct artefacts into one coherent result"
+      }
+    ],
+    "mdaAnalysis": {
+      "mechanics": "The core mechanics include top-down exploration, limited visibility through a circular light radius, locked diagram-based doors, clue collection, room illumination after successful completion, score tracking, rank progression, hint usage, and boss restoration stages. Each scenario contains four main puzzle room types: Use Case, Class/Domain, Sequence, and Database. Completing these rooms unlocks a final boss challenge where the player reconstructs the full broken system.",
+      "dynamics": "These mechanics create dynamics of curiosity, gradual mastery, and structured progression. Limited vision encourages careful exploration, while clue collection supports reasoning before solving puzzles. Players experience a learning flow in which early diagram tasks help them prepare for more integrated challenges later in the scenario. The possibility of returning to illuminated rooms for key fragments also creates a sense of continuity between earlier analysis tasks and later design tasks.",
+      "aesthetics": "The intended aesthetics are discovery, challenge, clarity, accomplishment, and restoration. Players should feel that they are uncovering and repairing a broken system step by step, not just answering isolated academic questions. The visual transition from darkness to light reinforces progress and gives each solved puzzle a strong emotional payoff. Boss rooms are designed to create a final “system restored” moment that feels rewarding both intellectually and visually."
+    },
+    "gameDuration": "60",
+    "introText": "Welcome to Dungeon of Systems. Your objective is to restore a broken system world by exploring dark rooms, collecting clues, solving diagram-based puzzle doors, and rebuilding the final corrupted system core. Each session follows a structured Systems Analysis and Design logic: understand the scenario, inspect clues, solve the required diagram rooms, and complete the final boss restoration task. You will play as an Analyst, and your success depends on correctly solving Use Case, Class/Domain, Sequence, and Database challenges.\n\nYou have 60 minutes to complete the assigned scenario. Points are earned by solving puzzles correctly, finishing rooms efficiently, collecting useful fragments, and completing the boss room. Limited hints are available, but using them may reduce bonus points. You succeed when all required rooms are restored, the boss chamber is completed, and the system is fully reactivated before the session ends.",
+    "preGameSetup": "Load the correct scenario (Café, School, or Clinic) into the game build.\nCheck player access and confirm that all users can launch the game successfully.\nReset score, hint count, and room status for the current session.\nVerify puzzle configuration for Use Case, Class/Domain, Sequence, Database, and Boss rooms.\nEnable logging for player entry, room completion, score changes, hint usage, and final outcome.\nFacilitator check: confirm projector/demo screen, timer visibility, and backup written instructions in case of technical failure.",
+    "sessionSteps": [
+      {
+        "phase": "Introduction & Rules Briefing",
+        "duration": "5 min",
+        "facilitator": "Explain scenario goal, scoring, room types, hint rules, and success criteria",
+        "player": "Read instructions and prepare to start"
+      },
+      {
+        "phase": "Scenario Briefing",
+        "duration": "5 min",
+        "facilitator": "Present the system context (e.g. café order system) and explain the main operational problem",
+        "player": "Review the narrative brief and identify the mission context"
+      },
+      {
+        "phase": "Exploration & Clue Collection",
+        "duration": "10 min",
+        "facilitator": "Monitor navigation, answer basic rule questions, and observe pacing",
+        "player": "Explore dark rooms, inspect clue objects, locate the first puzzle doors"
+      },
+      {
+        "phase": "Core Puzzle Phase",
+        "duration": "25 min",
+        "facilitator": "Observe progress, provide non-solution guidance if needed, and track timing",
+        "player": "Solve Use Case, Class/Domain, Sequence, and Database rooms"
+      },
+      {
+        "phase": "Boss Restoration Phase",
+        "duration": "10 min",
+        "facilitator": "Confirm boss unlock, supervise final challenge, and track completion",
+        "player": "Combine recovered fragments and restore the final system core"
+      },
+      {
+        "phase": "Review & Reflection",
+        "duration": "5 min",
+        "facilitator": "Show score summary, discuss common mistakes, and connect gameplay to course concepts",
+        "player": "Review outcome, reflect on diagram logic, and compare strategies"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "SC-01",
+        "name": "Main Scenario",
+        "title": "Café Order System Recovery",
+        "setup": "The player enters a corrupted café system world where the ordering workflow has collapsed. Rooms are dark, key operational logic is fragmented, and the café cannot function until its diagram-based system layers are restored.",
+        "objective": "Restore the café order system by solving the four core diagram rooms and activating the final system core.",
+        "winCondition": "All 4 core rooms are solved Required fragments are collected Boss chamber is completed before time runs out",
+        "loseCondition": "Session time expires before the boss room is completed",
+        "maxPoints": 850,
+        "duration": "20 min",
+        "difficulty": "Easy",
+        "storyboard": "The player enters the ruined café archive as a Junior Analyst. By exploring the dark map, finding clues, and opening locked puzzle doors, the player gradually restores the order flow, payment structure, and product logic of the café. Once the core fragments are recovered, the player enters the boss chamber and reactivates the complete café system.",
+        "algorithm": "Use Case identification → Class/Domain reconstruction → Sequence ordering → Database relationship matching → final integrated system restore",
+        "outcome": "Clue locations may vary slightly between runs Room entry order may vary within the scenario Decorative object layout may change, but core learning logic remains fixed",
+        "activities": [
+          {
+            "id": "ACT-01",
+            "action": "Explore the café and locate the first puzzle door",
+            "description": "The player uses limited visibility to inspect the café map and find clues related to actors, orders, and payment flow.",
+            "trigger": "At scenario start",
+            "winCondition": "First relevant clue collected and first puzzle room found",
+            "winResult": "Puzzle room unlocked for interaction",
+            "winPoints": 30,
+            "loseCondition": "Player wanders without identifying a clue for too long",
+            "loseResult": "Time lost, no progress",
+            "losePoints": 0,
+            "neutralCondition": "Room found, but no clue collected",
+            "neutralResult": "Room accessed with less contextual support",
+            "neutralPoints": 10,
+            "timer": "5"
+          },
+          {
+            "id": "ACT-02",
+            "action": "Solve the Use Case room",
+            "description": "The player identifies actors and core actions in the café ordering workflow.",
+            "trigger": "After first room interaction",
+            "winCondition": "Correct actor–use case structure submitted",
+            "winResult": "Room restored and illuminated",
+            "winPoints": 100,
+            "loseCondition": "Incorrect submission limit reached before timeout",
+            "loseResult": "Feedback shown, room remains locked",
+            "losePoints": -10,
+            "neutralCondition": "Correct after retries or with hint",
+            "neutralResult": "Room opens with reduced score",
+            "neutralPoints": 0,
+            "timer": "5"
+          },
+          {
+            "id": "ACT-03",
+            "action": "Complete remaining core rooms and the boss restoration",
+            "description": "The player solves Class/Domain, Sequence, and Database rooms, then uses recovered fragments in the boss chamber to restore the café system.",
+            "trigger": "After first room completion",
+            "winCondition": "All remaining rooms and boss completed",
+            "winResult": "Café system fully restored",
+            "winPoints": 720,
+            "loseCondition": "Boss room not completed before time ends",
+            "loseResult": "Scenario incomplete",
+            "losePoints": 0,
+            "neutralCondition": "Core rooms solved but boss unfinished",
+            "neutralResult": "Partial restoration summary shown",
+            "neutralPoints": 300500,
+            "timer": "15"
+          }
+        ]
+      },
+      {
+        "id": "SC-02",
+        "name": "Alternative Scenario 1",
+        "title": "School Management System Reconstruction",
+        "setup": "The player enters a corrupted school management archive where registration, scheduling, and grading functions are fragmented. The system world contains dark classroom and office areas connected by puzzle rooms.",
+        "objective": "Restore the school system by reconnecting enrolment, course structure, sequence flow, and database logic.",
+        "winCondition": "All required puzzle rooms solved School core chamber activated successfully",
+        "loseCondition": "Time expires before school system reconstruction is completed",
+        "maxPoints": 900,
+        "duration": "20 min",
+        "difficulty": "Standard",
+        "storyboard": "The player enters a dark academic archive where schedules, grades, and enrolments no longer connect properly. By reconstructing diagram logic room by room, the player restores the structure of the school’s digital operations. The final chamber challenges the player to combine all previously solved system elements into one working academic platform.",
+        "algorithm": "Requirements understanding → Use Case identification → structural modelling → interaction flow reconstruction → data structure matching → final integration",
+        "outcome": "Clue document positions can vary Some room access order can be flexible Boss chamber fragment placement may vary",
+        "activities": [
+          {
+            "id": "ACT-01",
+            "action": "Investigate school clues and identify the first required room",
+            "description": "The player explores desks, forms, schedules, and records to infer how the school system operates.",
+            "trigger": "Scenario start",
+            "winCondition": "Key scenario clues identified quickly",
+            "winResult": "Faster entry into core puzzle progression",
+            "winPoints": 40,
+            "loseCondition": "No meaningful clue found before timer checkpoint",
+            "loseResult": "Delayed progression",
+            "losePoints": 0,
+            "neutralCondition": "At least one useful clue discovered",
+            "neutralResult": "Partial support for the first puzzle",
+            "neutralPoints": 15,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-02",
+            "action": "Solve the four diagram rooms",
+            "description": "The player restores system logic related to enrolment, grading, scheduling, and user roles.",
+            "trigger": "After first puzzle room access",
+            "winCondition": "All 4 diagram rooms solved",
+            "winResult": "Boss chamber unlocked",
+            "winPoints": 500,
+            "loseCondition": "Core rooms remain incomplete when boss phase begins",
+            "loseResult": "Boss chamber stays locked",
+            "losePoints": 0,
+            "neutralCondition": "2–3 rooms solved correctly",
+            "neutralResult": "Partial progression saved",
+            "neutralPoints": 180360,
+            "timer": "10"
+          },
+          {
+            "id": "ACT-03",
+            "action": "Complete the school boss room",
+            "description": "The player rebuilds the school system core by integrating enrolment, grade, and schedule logic into one final puzzle state.",
+            "trigger": "After all fragments collected",
+            "winCondition": "Full boss reconstruction completed",
+            "winResult": "School archive restored",
+            "winPoints": 360,
+            "loseCondition": "Final integration incorrect or unfinished before time expires",
+            "loseResult": "Scenario incomplete",
+            "losePoints": 0,
+            "neutralCondition": "Some boss components correctly placed",
+            "neutralResult": "Partial summary and feedback shown",
+            "neutralPoints": 0,
+            "timer": "5 min"
+          }
+        ]
+      },
+      {
+        "id": "SC-03",
+        "name": "Alternative Scenario 2",
+        "title": "Clinic Appointment System Restoration",
+        "setup": "The player enters the most complex corrupted system world: a clinic archive where appointments, patient records, and medical workflow are disconnected. The environment is darker, more fragmented, and requires stronger integration across rooms.",
+        "objective": "Restore the clinic system by correctly rebuilding the actors, structures, flows, and database logic behind appointment handling and patient record management.",
+        "winCondition": "Core rooms completed Boss chamber activated Clinic system restored before the session ends",
+        "loseCondition": "Time expires before full restoration is completed",
+        "maxPoints": 950,
+        "duration": "20 min",
+        "difficulty": "Hard",
+        "storyboard": "The player reaches the most unstable archive zone, where patient and appointment systems have collapsed into disconnected fragments. The clinic scenario requires more careful reasoning because actors, records, and process flow must all align correctly for the system to work. In the boss room, the player restores the final operating core and proves readiness to become a System Architect.",
+        "algorithm": "Role analysis → structural reconstruction → workflow sequencing → persistence logic → integrated operational recovery",
+        "outcome": "Clue locations vary Decorative room layouts vary Some optional clue order may change Core puzzle logic remains academically fixed",
+        "activities": [
+          {
+            "id": "ACT-01",
+            "action": "Explore the clinic archive and gather role/process clues",
+            "description": "The player investigates appointment slips, terminals, and patient records to understand the domain context.",
+            "trigger": "At scenario start",
+            "winCondition": "Essential clues found early",
+            "winResult": "Improved preparation for the first puzzle room",
+            "winPoints": 40,
+            "loseCondition": "No relevant clue found within the first checkpoint",
+            "loseResult": "Slower puzzle interpretation",
+            "losePoints": 0,
+            "neutralCondition": "At least one major clue collected",
+            "neutralResult": "Partial context gained",
+            "neutralPoints": 15,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-02",
+            "action": "Solve the clinic’s core diagram rooms",
+            "description": "The player completes the Use Case, Class/Domain, Sequence, and Database rooms using a more complex healthcare scenario structure.",
+            "trigger": "After clue collection",
+            "winCondition": "All core rooms solved correctly",
+            "winResult": "Boss chamber unlocked",
+            "winPoints": 550,
+            "loseCondition": "Multiple rooms remain unsolved at the boss checkpoint",
+            "loseResult": "Final reconstruction blocked",
+            "losePoints": 0,
+            "neutralCondition": "At least half the rooms completed",
+            "neutralResult": "Partial system recovery",
+            "neutralPoints": 200400,
+            "timer": "10 min"
+          },
+          {
+            "id": "ACT-03",
+            "action": "Restore the clinic system core",
+            "description": "The player integrates all recovered fragments to reactivate the appointment and record system.",
+            "trigger": "Boss room unlocked",
+            "winCondition": "Final system core correctly reconstructed",
+            "winResult": "Scenario completed and final rank progression unlocked",
+            "winPoints": 350,
+            "loseCondition": "Time expires or critical logic remains broken",
+            "loseResult": "Scenario ends without full restoration",
+            "losePoints": 0,
+            "neutralCondition": "Some major components correctly integrated",
+            "neutralResult": "Partial restoration feedback displayed",
+            "neutralPoints": 120220,
+            "timer": "5 min"
+          }
+        ]
+      }
+    ],
+    "scoringSystem": {
+      "basis": "Base XP / Point Formula\nUse Case Room completed correctly: 100 pts\nClass/Domain Room completed correctly: 120 pts\nSequence Room completed correctly: 120 pts\nDatabase Room completed correctly: 140 pts\nBoss Restoration completed correctly: 200 pts\nAdditional baseline rules\nFirst correct submission earns full room points\nSecond-attempt success earns 80% of room points\nThird-attempt success earns 60% of room points\nCompleting a room also unlocks its illumination state and system fragment",
+      "bonuses": "No-hint room completion: +20 pts\nPerfect room on first try: +30 pts\nAll 4 core rooms completed before boss with no failed submission: +50 pts\nBoss room completed with all required fragments collected: +40 pts\nFull scenario completion within session time: +50 pts",
+      "penalties": "Incorrect submission: -10 pts\nHint usage: -15 pts from that room’s potential bonus score\nAbandoning a room attempt and resetting the puzzle: -5 pts\nNo penalty for exploration or backtracking to avoid discouraging learners",
+      "badges": "First Light — awarded for restoring the first room\nUse Case Seeker — awarded for perfect Use Case completion\nStructure Builder — awarded for correct Class/Domain completion on first try\nFlow Restorer — awarded for solving the Sequence room without a hint\nData Keeper — awarded for solving the Database room with full points\nSystem Rebuilder — awarded for completing the boss room\nArchive Restorer — awarded for finishing an entire scenario\nMaster Analyst — awarded for completing all scenarios in the full game progression"
+    },
+    "socialFeatures": {
+      "leaderboard": false,
+      "mentoring": true,
+      "notifications": true,
+      "analytics": true,
+      "forums": false,
+      "clubs": true,
+      "broadcast": true
+    },
+    "rewardTiers": {
+      "elite": "Target group: top performers, high mastery, strong completion quality\nRewards:\n\nMaster Architect title\nExclusive profile badge or scenario completion frame\nSpecial archive glow / player aura cosmetic\nRecognition on the “Top Restorers” board\nUnlockable hard-mode challenge room or bonus restoration mission\nRationale\n\nElite rewards are designed as prestige-based recognition rather than unfair gameplay advantages. They celebrate mastery without blocking other players from completing the main game.",
+      "professional": "Target group: strong and consistent performers, including median-to-above-average players\nRewards:\n\nSenior Analyst or System Rebuilder title\nStandard achievement badges for scenario completion\nExtra lore entries or archive records\nCosmetic room themes or UI skins\nSmall reserve of bonus hint tokens for future scenarios\nRationale\n\nThis tier ensures that strong performance is recognised even if the player is not in the absolute top group. It keeps motivation high for the large middle of the class and avoids making rewards feel exclusive to only a few students.",
+      "access": "Target group: all players who complete required milestones or finish a scenario\nRewards:\n\nCompletion certificate / in-game completion mark\nJunior Analyst Progress badge\nBasic archive credits\nVisible map restoration summary\nScenario completion stamp in the player profile\nRationale\n\nThis tier ensures that every learner receives meaningful acknowledgement for participation and persistence. It prevents the system from rewarding only elite performance and helps lower-confidence players remain engaged."
+    },
+    "executionLog": [],
+    "leaderboardConfig": {},
+    "risks": [],
+    "tuslerRisks": [
+      {
+        "risk": "Players may become stuck on a diagram puzzle and lose motivation, especially in later scenarios with higher complexity.",
+        "category": "Tiger 🐯",
+        "prob": "High",
+        "impact": "High",
+        "preventive": "Use progressive difficulty, contextual clues, limited hints, and clear tutorialisation in early stages.",
+        "responsive": "Allow adaptive hint escalation, simplify the current room slightly, or provide facilitator guidance without revealing the full solution."
+      },
+      {
+        "risk": "Minor confusion about controls, room goals, or puzzle interaction may occur frequently during first-time use.",
+        "category": "Puppy 🐶",
+        "prob": "High",
+        "impact": "Low",
+        "preventive": "Provide a short onboarding tutorial, clear icons, and concise instructions at room entry.",
+        "responsive": "Facilitator clarifies rules quickly and directs players back to the objective without interrupting overall flow."
+      },
+      {
+        "risk": "The scoring or leaderboard system may unintentionally discourage average-performing students if it overemphasises absolute rank.",
+        "category": "Alligator 🐊",
+        "prob": "Low",
+        "impact": "High",
+        "preventive": "Use multi-category leaderboards, opt-out visibility, and recognition for improvement and completion rather than only top score.",
+        "responsive": "Temporarily hide public ranking, switch to anonymised display, or emphasise private progress dashboards and reflection outcomes instead."
+      },
+      {
+        "risk": "Small technical issues such as delayed room loading, input lag, or incorrect logging may happen during live play.",
+        "category": "Puppy 🐶",
+        "prob": "High",
+        "impact": "Low",
+        "preventive": "Test the build before each session, validate room logic, and keep backup instructions ready.",
+        "responsive": "Restart the scenario, restore progress from checkpoint, or switch affected players to a backup build or manual worksheet version if needed."
+      },
+      {
+        "risk": "A major bug in puzzle validation or boss-room logic could block completion of a scenario and undermine the learning session.",
+        "category": "Alligator 🐊",
+        "prob": "Low",
+        "impact": "High",
+        "preventive": "Conduct pre-session testing for all room types, validate scoring rules, and keep a fallback demo or alternative task version.",
+        "responsive": "Freeze the broken room, substitute a facilitator-led recovery version, and award adjusted completion credit so the learning session can continue."
+      },
+      {
+        "risk": "Players may focus only on points and bonuses instead of engaging with the intended Systems Analysis and Design concepts.",
+        "category": "Kitten 🐱",
+        "prob": "Low",
+        "impact": "Low",
+        "preventive": "Tie rewards only to meaningful learning actions and connect every room to a clear diagram objective.",
+        "responsive": "Reframe the activity during debrief, reduce emphasis on raw score, and highlight concept mastery in feedback."
+      }
+    ],
+    "supportTeam": [
+      {
+        "role": "Game Lead / Facilitator",
+        "name": "",
+        "resp": "Oversees live session flow, explains rules, manages timing, supports fair play, and leads the final reflection discussion."
+      },
+      {
+        "role": "Technical Support",
+        "name": "",
+        "resp": "Prepares the build, checks device/platform access, resolves technical issues, restores checkpoints, and handles backup deployment if needed."
+      },
+      {
+        "role": "Data Analyst / Scorekeeper",
+        "name": "",
+        "resp": "Monitors logs, validates score changes, tracks room completion and hint use, and prepares leaderboard/session summaries."
+      },
+      {
+        "role": "Content / Learning Design Reviewer",
+        "name": "",
+        "resp": "Checks whether puzzle content remains aligned with course objectives, reviews diagram accuracy, and helps interpret common learner mistakes after sessions."
+      }
+    ],
+    "facilitatorRole": "The facilitator plays a strictly non-playing role during the live session. Their responsibilities are to introduce the scenario, explain the rules, monitor time and phase transitions, confirm that the game is functioning correctly, and answer clarification questions about controls or procedure. The facilitator should not reveal correct puzzle solutions or optimal strategies during play, because the learning value depends on the player reasoning through the diagram tasks.\n\nDuring the session, the facilitator also monitors frustration points, observes whether hints are being used appropriately, and ensures that the activity remains fair and inclusive. At the end of the session, the facilitator leads the debrief by connecting game actions back to real Systems Analysis and Design concepts such as Use Case logic, Class modelling, Sequence flow, and Database relationships.",
+    "bloomOutcomes": [
+      {
+        "level": "Remember",
+        "outcome": "Participants will recall the names and purposes of key Systems Analysis and Design artefacts such as Use Case, Class, Sequence, and Database diagrams.",
+        "activity": "Intro tutorial, clue inspection, and early-room diagram identification",
+        "assessment": "Short pre/post recognition quiz or in-game identification checkpoint"
+      },
+      {
+        "level": "Understand",
+        "outcome": "Participants will explain how different diagram types represent different aspects of a system.",
+        "activity": "Scenario briefing, clue interpretation, and comparison between room types",
+        "assessment": "Short-answer reflection or matching task after scenario completion"
+      },
+      {
+        "level": "Apply",
+        "outcome": "Participants will correctly use diagram elements to solve room-based modelling challenges in a given scenario.",
+        "activity": "Use Case, Class/Domain, Sequence, and Database puzzle rooms",
+        "assessment": "In-game completion accuracy, retry count, and room success rate"
+      },
+      {
+        "level": "Analyse",
+        "outcome": "Participants will analyse a scenario context and determine which actors, entities, flows, and data structures belong to the system.",
+        "activity": "Clue collection, room unlocking, and reasoning across multiple puzzle rooms",
+        "assessment": "Scenario-based analysis task, boss preparation accuracy, and facilitator observation"
+      },
+      {
+        "level": "Evaluate",
+        "outcome": "Participants will judge whether a proposed system structure or interaction flow is appropriate for the scenario and choose the best solution.",
+        "activity": "Boss restoration stage where recovered fragments must be integrated correctly",
+        "assessment": "Final boss performance, comparative reasoning task, or post-session explanation"
+      },
+      {
+        "level": "Create",
+        "outcome": "Participants will construct or propose a coherent integrated system design using multiple artefacts from earlier learning tasks.",
+        "activity": "Final archive restoration or extended reflection activity after scenario completion",
+        "assessment": "Capstone design summary, mini-report, or instructor-evaluated reconstruction task"
+      }
+    ],
+    "kirkpatrick": {
+      "l1": "Participant satisfaction will be measured through a short post-session survey focusing on enjoyment, clarity, perceived usefulness, and overall engagement. The target is for at least 70% of participants to rate the experience positively on a Likert-scale satisfaction survey. Additional open-ended feedback can capture which game elements felt most motivating or confusing.",
+      "l2": "Knowledge gain will be measured through a pre/post comparison using short diagram-based questions or concept checks. The target is a measurable increase in understanding of Use Case, Class, Sequence, and Database concepts after participation. In-game evidence such as reduced retries, improved completion accuracy, and better boss integration can also support the learning evaluation.",
+      "l3": "Transfer of learning will be measured 4 weeks later by observing whether students apply diagram logic more effectively in later coursework, modelling exercises, or project tasks. Indicators may include improved diagram quality, stronger justification of modelling choices, or reduced dependence on instructor correction. Reflection tasks can also ask students whether the game influenced how they approach systems analysis problems.",
+      "l4": "Longer-term results will be measured 3 months later through course-level indicators such as improved engagement, more consistent participation, stronger performance on diagram-related assessments, or reduced drop-off in modelling tasks. At project level, success also means that the gamified format provides a reusable and motivating teaching support tool for Systems Analysis and Design. If large-scale academic measurement is not feasible, this level can be framed as expected educational impact rather than a guaranteed institutional outcome."
+    },
+    "kpis": [],
+    "futureEnhancements": [],
+    "dataCollection": "Quantitative data will be analysed using descriptive statistics such as completion rates, average scores, retry counts, and hint usage. Pre/post test results will be compared to evaluate short-term learning improvement, while survey responses will be summarised to assess perceived engagement and clarity. Qualitative feedback from focus groups, open-ended survey items, or interviews will be coded into themes such as motivation, frustration points, usability, and learning value. These findings will be triangulated with execution logs so that gameplay behaviour and participant perception can be interpreted together rather than in isolation.",
+    "continuousImprovement": "The project will use an iterative improvement cycle based on testing, feedback, and refinement. After each pilot or classroom use, gameplay logs, survey results, and facilitator observations will be reviewed to identify usability problems, pacing issues, and learning bottlenecks. Improvements will then be prioritised based on educational impact and implementation effort. This continuous improvement approach ensures that the project remains aligned with both player motivation and course learning objectives over time.",
+    "appendices": [
+      "Glossary of Terms",
+      "Game Component Inventory",
+      "Sample Game Session Log",
+      "Storyboard Visuals",
+      "FR/NFR Traceability Matrix",
+      "Survey Instruments",
+      "Consent & Privacy Forms",
+      "Change Log"
+    ],
+    "timeline": [],
+    "baselineEngagement": "",
+    "targetEngagement": "",
+    "baselineScore": "",
+    "attritionTarget": "",
+    "transferTarget": "",
+    "resultsKPI": "",
+    "analyticsplatform": "",
+    "usedRefs": {},
+    "gamePurpose": "",
+    "gameSubject": "",
+    "gameMethod": "",
+    "gameMeasurement": "",
+    "gamePlayers": "",
+    "gamePoints": "",
+    "gameAchievements": "",
+    "gameBadges": "",
+    "gameOverview": "",
+    "playerRoles": [
+      {
+        "name": "Systems Analyst",
+        "side": "Analysis Team",
+        "desc": "Student acting as SA to model and analyse systems",
+        "abilities": [
+          "Elicit requirements",
+          "Create UML diagrams",
+          "Resolve contradictions"
+        ],
+        "objectives": [
+          "Produce complete system model",
+          "Achieve ≥85% accuracy on model review"
+        ],
+        "scoring": {
+          "correctElement": 20,
+          "completeModel": 50,
+          "contradictionResolved": 15
+        }
+      }
+    ],
+    "gameSides": [
+      {
+        "name": "Analysis Team",
+        "roles": [
+          "Systems Analyst"
+        ],
+        "winCondition": "Produce a complete, accurate system model with zero critical errors"
+      }
+    ],
+    "winConditions": [
+      {
+        "side": "Systems Analyst",
+        "condition": "Submit system model with ≥90% completeness and zero critical modelling errors",
+        "points": 100
+      },
+      {
+        "side": "Systems Analyst",
+        "condition": "Resolve all requirement contradictions without instructor intervention",
+        "points": 50
+      }
+    ],
+    "gamePhases": [
+      {
+        "name": "Requirements Briefing",
+        "seq": 1,
+        "duration": "5 min",
+        "description": "Receive client brief with intentional contradictions and ambiguities",
+        "actions": [
+          "Read client brief",
+          "List initial actors",
+          "Identify obvious contradictions"
+        ],
+        "facilitator": "Distribute brief; explain grading criteria; set timer"
+      },
+      {
+        "name": "Analysis Work — Database Normalisation Puzzle",
+        "seq": 2,
+        "duration": "25 min",
+        "description": "Students normalise database tables to 3NF to escape each dungeon room",
+        "actions": [
+          "Create/correct diagrams",
+          "Resolve contradictions",
+          "Ask clarifying questions"
+        ],
+        "facilitator": "Trigger event cards; provide client responses to questions; monitor progress"
+      },
+      {
+        "name": "Model Review & Debrief",
+        "seq": 3,
+        "duration": "10 min",
+        "description": "Review model against gold standard; connect to Satzinger theory",
+        "actions": [
+          "Compare model with solution",
+          "Identify missed elements",
+          "Document lessons learned"
+        ],
+        "facilitator": "Show correct model; explain common errors; connect to Satzinger chapter"
+      }
+    ],
+    "eventCards": [
+      {
+        "id": "EV-01",
+        "name": "Partial Dependency",
+        "trigger": "Room 3",
+        "effect": "A non-key attribute partially depends on composite key — must achieve 2NF to proceed",
+        "pmConcept": "2NF Normalisation (Satzinger Ch 10)"
+      },
+      {
+        "id": "EV-02",
+        "name": "Transitive Dependency",
+        "trigger": "Room 6",
+        "effect": "Non-key attribute depends on another non-key attribute — must achieve 3NF",
+        "pmConcept": "3NF Normalisation"
+      },
+      {
+        "id": "EV-03",
+        "name": "Referential Integrity Violation",
+        "trigger": "If foreign key not specified",
+        "effect": "System crash event — student must add referential integrity constraints to all tables",
+        "pmConcept": "Referential Integrity"
+      }
+    ],
+    "roleScoring": [
+      {
+        "role": "Systems Analyst",
+        "action": "Correct UML element added to model",
+        "points": 20,
+        "type": "base"
+      },
+      {
+        "role": "Systems Analyst",
+        "action": "Complete model submitted with zero critical errors",
+        "points": 50,
+        "type": "bonus"
+      },
+      {
+        "role": "Systems Analyst",
+        "action": "Contradiction correctly resolved",
+        "points": 15,
+        "type": "bonus"
+      },
+      {
+        "role": "Systems Analyst",
+        "action": "Critical modelling error (wrong relationship type)",
+        "points": -15,
+        "type": "penalty"
+      },
+      {
+        "role": "Systems Analyst",
+        "action": "Missed actor or use case",
+        "points": -10,
+        "type": "penalty"
+      }
+    ],
+    "teamFormationRules": "Individual or pairs. Each student/pair receives same client brief. Final models compared for peer review discussion.",
+    "gameIntroScript": "Welcome to Database Quest! You are a Systems Analyst assigned to model a client system. The brief contains deliberate contradictions — your job is to identify them, resolve them, and produce a complete system model. Every correct element earns XP. Every contradiction resolved earns bonus XP. Produce the most accurate model in the class.",
+    "physicalArtifacts": [
+      {
+        "type": "Digital Game Interface",
+        "description": "Browser-based game accessible via URL",
+        "qty": "1 per student",
+        "material": "HTML5 web application"
+      },
+      {
+        "type": "Facilitator Dashboard",
+        "description": "Instructor view showing all student progress",
+        "qty": "1 per session",
+        "material": "Digital — same application, facilitator mode"
+      }
+    ],
+    "environmentalSetup": {
+      "zones": [
+        {
+          "name": "Workstation Area",
+          "desc": "Individual or paired PC/laptop stations",
+          "requirement": "COM4061 Computer Lab with UML diagramming tools"
+        },
+        {
+          "name": "Projection Zone",
+          "desc": "Instructor screen for demo and announcements",
+          "requirement": "Projector or TV display"
+        }
+      ],
+      "equipment": [
+        "Browser-compatible devices for all students",
+        "Stable internet connection",
+        "Instructor display"
+      ],
+      "accessibility": "All interactions digital; screen-reader compatible; keyboard navigable"
+    },
+    "learningContentDetails": {
+      "teachingSubject": "COM4061: System Analysis & Design — requirements elicitation, UML, domain modelling, database design, deployment — Satzinger Chapters 3-14",
+      "declarativeKnowledge": "Briefings define SA/D frameworks through realistic client scenario context (e.g., power/interest dynamics introduced via stakeholder contradictions)",
+      "proceduralKnowledge": "Students apply modelling skills with immediate accuracy feedback (model elements scored in real-time against gold-standard solution)",
+      "methodology": "Problem-based learning: ambiguous brief → systematic analysis → model production → peer comparison → instructor debrief",
+      "furtherSources": [
+        "Satzinger et al. 'Systems Analysis and Design' 5th Ed",
+        "OMG UML Specification",
+        "COM4061 lecture slides"
+      ]
+    },
+    "secondaryBenefits": [
+      "Enhance teamwork and collaborative problem-solving under time pressure",
+      "Foster adaptability and analytical modelling in ambiguous situations",
+      "Bridge theoretical course content with practical application through experience",
+      "Develop communication and persuasion skills in academic context"
+    ],
+    "dataCollectionPlan": {
+      "responsible": "Course Facilitator / Gamification Team",
+      "fields": [
+        "Student ID (anonymised)",
+        "Session date",
+        "Score per round",
+        "Decision log",
+        "Role assigned",
+        "Final placement"
+      ],
+      "method": "Automated digital log + end-of-session survey",
+      "analysis": "Post-session: score correlation with COM4061 systems modelling assignment assessment performance; engagement survey NPS"
+    },
+    "glossary": [
+      {
+        "term": "Use Case",
+        "definition": "A description of how an actor uses the system to accomplish a goal"
+      },
+      {
+        "term": "Actor",
+        "definition": "A person or external system interacting with the system under design"
+      },
+      {
+        "term": "Domain Model",
+        "definition": "A conceptual model showing the key concepts and relationships in the problem domain"
+      },
+      {
+        "term": "UML",
+        "definition": "Unified Modelling Language — standardised visual notation for system design"
+      },
+      {
+        "term": "Contradiction",
+        "definition": "A conflicting requirement from two different stakeholders requiring resolution"
+      },
+      {
+        "term": "Normal Form",
+        "definition": "A level of database normalisation reducing data redundancy (1NF→2NF→3NF)"
+      },
+      {
+        "term": "Referential Integrity",
+        "definition": "A constraint ensuring foreign key values always reference a valid primary key"
+      }
+    ],
+    "deliverableJust": "The predefined deliverable areas are mainly focused on blockchain and Web3 topics, while this project is designed for a Systems Analysis and Design course. Therefore, a custom deliverable area is more appropriate because the main gamification target is not blockchain literacy, but the learning and application of analysis and design concepts such as Use Case, Class, Sequence, and Database diagrams. The project turns these course concepts into interactive gameplay tasks, making the custom option the most relevant and academically aligned choice.",
+    "howEthics": "Student participation is voluntary; equivalent written task available for opt-outs. All performance data anonymised in aggregate reports. Data collected under KVKK and GDPR, disclosed in course syllabus. Assessment based on participation and reflection, not competitive ranking. Instructor monitors emotional wellbeing; distress triggers private check-in.",
+    "platform": "Unity",
+    "lbCats": "Participant Names | Total XP | Badges | Session Rank | Personal Points % = (player XP / total class XP) x 100 | Model Completeness Score | Contradiction Resolution Rate",
+    "logPrivacy": "Activity logs retained 6 months. Accessible only to facilitator and research team. Student identifiers anonymised in aggregate reports. Data per KVKK and GDPR. Students informed via course syllabus. Data destruction certificate at academic year end.",
+    "school": "Istanbul Kültür University — Computer Engineering Department",
+    "semester": "2025-2026 Spring Semester",
+    "teamMembers": [
+      {
+        "id": "2200003305",
+        "name": "Ahmet Recep",
+        "surname": "Özdemir",
+        "email": "2200003305@stu.iku.edu.tr",
+        "phone": "+905061192615"
+      },
+      {
+        "id": "2200002628",
+        "name": "Aysun",
+        "surname": "Yılmaz",
+        "email": "2200002628@stu.iku.edu.tr",
+        "phone": "+905372926778"
+      },
+      {
+        "id": "2200005202",
+        "name": "Yiğit Talha",
+        "surname": "Dinç",
+        "email": "2200005202@stu.iku.edu.tr",
+        "phone": "+905452714924"
+      },
+      {
+        "id": "2000001081",
+        "name": "Atakan",
+        "surname": "Chiftlik",
+        "email": "2000001081@stu.iku.edu.tr",
+        "phone": "+905345685318"
+      },
+      {
+        "id": "2200005188",
+        "name": "Samet",
+        "surname": "Aktaş",
+        "email": "2200005188@stu.iku.edu.tr",
+        "phone": "+905079953838"
+      },
+      {
+        "id": "2200004278",
+        "name": "Esra",
+        "surname": "Kaya",
+        "email": "2200004278@stu.iku.edu.tr",
+        "phone": "+905358732266"
+      },
+      {
+        "id": "2200004263",
+        "name": "Buse",
+        "surname": "Baydilli",
+        "email": "2200004263@stu.iku.edu.tr",
+        "phone": "+905369923473"
+      },
+      {
+        "id": "2200004466",
+        "name": "Irmak",
+        "surname": "Tarhan",
+        "email": "2200004466@stu.iku.edu.tr",
+        "phone": "+905537770603"
+      }
+    ],
+    "instructorRole": "The instructor should only be assigned the role of questioning the game. No additional roles beyond questioning should be assigned. The instructor's focus is on facilitating reflection, probing understanding, and guiding critical thinking — not participating in game mechanics. If the instructor participates as a player, grading objectivity and the psychological safety of students may be compromised.",
+    "gameDurationRules": "No single game should exceed 30 minutes of active gameplay. Total session including introduction and debrief: 30 minutes. Recommended timing: Introduction 5 min + Active gameplay 20 min + Debrief & reflection 5 min. Instructor may pause at any time for teaching moments. Games exceeding time limit are concluded at the current phase boundary.",
+    "gameEndConditions": {
+      "condition1": {
+        "check": "Has the player solved all mandatory puzzles within the time limit?",
+        "result": "ESCAPE COMPLETE",
+        "outcome": "Game ends. Full XP and Escape Artist badge awarded. Debrief commences.",
+        "type": "win"
+      },
+      "condition2": {
+        "check": "Has the player used all hint tokens without completing the puzzle chain?",
+        "result": "ESCAPE FAILED",
+        "outcome": "Game ends. Partial XP for puzzles solved. Instructor walks through solution logic in debrief.",
+        "type": "lose"
+      },
+      "condition3": {
+        "check": "Has the session timer reached 0?",
+        "result": "TIME LIMIT REACHED",
+        "outcome": "Game concludes immediately. XP awarded for puzzles completed. Full solution revealed during debrief.",
+        "type": "draw"
+      }
+    },
+    "techStack": {
+      "software": [
+        {
+          "name": "Game Engine / Browser App",
+          "role": "Central game state, scoring, leaderboard, and phase management",
+          "stack": "Browser-based HTML5/JS; no server dependency"
+        },
+        {
+          "name": "Player Dashboard Interface",
+          "role": "Real-time XP, badge display, and progress tracking per player",
+          "stack": "Responsive single-page web app; mobile-compatible"
+        },
+        {
+          "name": "Facilitator Control Panel",
+          "role": "Game phase control, timer management, and result override capability",
+          "stack": "Password-protected admin view within same HTML bundle"
+        },
+        {
+          "name": "Export & Report Module",
+          "role": "Session log, grade-ready CSV, and PDF summary generation",
+          "stack": "Client-side PDF/CSV generation; no backend required"
+        }
+      ],
+      "hardware": [
+        {
+          "name": "Instructor Laptop/Tablet",
+          "role": "Facilitator control panel and shared display projection"
+        },
+        {
+          "name": "Student Devices (BYOD)",
+          "role": "Individual player interfaces; any modern browser; IKU lab PCs available"
+        },
+        {
+          "name": "Classroom Projector/Screen",
+          "role": "Shared leaderboard and phase announcement display"
+        }
+      ],
+      "gameComponents": [
+        "Digital scoreboard",
+        "XP & badge tracking system",
+        "Phase timer",
+        "Facilitator override panel",
+        "Session export log"
+      ]
+    },
+    "references": [
+      {
+        "citation": "Satzinger, J.W., Jackson, R.B. & Burd, S.D. (2016). Systems Analysis and Design in a Changing World (7th ed.). Cengage.",
+        "relevance": "Core textbook — SDLC phases, UML modelling, and requirements analysis directly mapped to game scenarios."
+      },
+      {
+        "citation": "Dennis, A., Wixom, B.H. & Tegarden, D. (2015). Systems Analysis and Design: An Object-Oriented Approach with UML (5th ed.). Wiley.",
+        "relevance": "OO approach and UML notation standards used in game challenges and scoring rubrics."
+      },
+      {
+        "citation": "Kapp, K.M. (2012). The Gamification of Learning and Instruction. Pfeiffer.",
+        "relevance": "Foundational gamification theory for XP, badge, and leaderboard system design."
+      },
+      {
+        "citation": "Deterding, S., Dixon, D., Khaled, R. & Nacke, L. (2011). From game design elements to gamefulness: Defining gamification. Proceedings of MindTrek 2011.",
+        "relevance": "Gamification conceptual framework underpinning mechanics selection."
+      },
+      {
+        "citation": "Chou, Y. (2015). Actionable Gamification: Beyond Points, Badges and Leaderboards. Octalysis Media.",
+        "relevance": "Octalysis Core Drives applied to player motivation and engagement design."
+      }
+    ],
+    "sdtAutonomy": "Players are given meaningful choice through exploration, clue collection, and puzzle approach within each scenario. They can decide how to navigate the dark environment, which clues to inspect, when to use limited hints, and when to return to previously restored rooms to collect missing system fragments. Although each scenario has defined learning goals, the moment-to-moment path of discovery supports a sense of autonomy rather than forcing a single rigid interaction pattern.",
+    "sdtCompetence": "Competence is supported through progressive difficulty, immediate feedback, and visible mastery growth. The game begins with a simpler Café Order System, then increases complexity through the School Management System and Clinic Appointment System. Each correctly solved Use Case, Class, Sequence, or Database puzzle unlocks a room, awards score, and contributes to rank progression from Junior Analyst to higher levels. Incorrect answers do not fully block progress; instead, players receive contextual feedback or can use limited hints, which keeps the challenge demanding but manageable.",
+    "sdtRelatedness": "Relatedness is supported mainly through classroom-based comparison, discussion, and shared reflection rather than deep in-game social dependence. After sessions, students can compare restored systems, puzzle strategies, and scores, which encourages peer discussion about analysis and design decisions. Optional leaderboard categories, peer review, or instructor-led debriefing can also strengthen social connection by making progress visible in a collaborative learning environment.",
+    "gameMechanicsDetail": {
+      "elements": [
+        {
+          "name": "Points & XP",
+          "purpose": "Quantify learning performance and motivate continued engagement",
+          "ontology": "earn condition = correct in-game decision or task completion; value = 5-100 XP; tracked per player per session; displayed on dashboard"
+        },
+        {
+          "name": "Badges & Achievements",
+          "purpose": "Reward specific accomplishments beyond cumulative score",
+          "ontology": "trigger = discrete game event; acquisition = one-time per session; visible on player profile and leaderboard"
+        },
+        {
+          "name": "Leaderboard",
+          "purpose": "Provide social comparison and competitive engagement",
+          "ontology": "ranking = descending XP order; scope = class-wide session; updated after each phase; anonymised for export"
+        },
+        {
+          "name": "Session Timer",
+          "purpose": "Create urgency and model real-world time constraints",
+          "ontology": "duration = configured per phase; expiry = triggers phase transition; visible countdown displayed at all times"
+        },
+        {
+          "name": "Puzzle Lock System",
+          "purpose": "Represent domain knowledge as sequential solution gates",
+          "ontology": "lock = challenge requiring specific knowledge key; key = correct answer; chain = ordered lock sequence to exit"
+        },
+        {
+          "name": "Hint Token",
+          "purpose": "Provide scaffolded support while preserving cognitive effort",
+          "ontology": "token = limited resource (3 per session); spend = reveals partial solution; tracked per player"
+        },
+        {
+          "name": "Room Progression",
+          "purpose": "Structure exploration with clear spatial and conceptual boundaries",
+          "ontology": "room = bounded challenge space; unlock = all locks solved; progression = sequential room chain to exit"
+        }
+      ]
+    },
+    "gameDynamics": {
+      "progressionSystems": "Puzzle chain advances through four normalisation tiers: 1NF (atomic attributes, no repeating groups), 2NF (full functional dependency on composite key), 3NF (no transitive dependencies), and BCNF (every determinant is a candidate key). Each tier has 2–3 schema puzzles. Boss puzzle requires normalising a complex legacy schema with multiple violation types simultaneously.",
+      "feedbackLoops": "Functional dependency validation provides step-level feedback: exactly which attribute relationship causes a specific normalisation violation. Hint token use tracked and displayed in post-session report. Sandbox mode provides self-directed exploration feedback. Boss puzzle solution walkthrough provides comprehensive diagnostic feedback on all violation types.",
+      "competition": "Leaderboard by normalisation depth (highest normal form achieved) and efficiency (hints used). Weekly Database Architect badge for the student completing BCNF boss puzzle with fewest hints. Speed-normalise challenge creates a high-energy competitive event for specific 1NF/2NF puzzle types.",
+      "collaboration": "Pair normalisation mode: one student identifies functional dependencies, one applies normalisation changes to schema. Role alternation ensures both students engage both analytical and design competencies. Pair leaderboard based on joint solution quality and efficiency.",
+      "adaptability": "Schema puzzle pool configurable per COM4061 database topic. Normal form chain depth (stop at 3NF vs BCNF) adjustable for session scope. Hint token allocation adjustable for formative vs summative assessment. Boss puzzle schema complexity scalable for advanced cohorts."
+    },
+    "whyMotivation": "Students are motivated through three SDT core drives: Autonomy — database normalisation puzzle sequence self-direction makes system analysis exploration feel like genuine professional investigation rather than prescribed procedure following. Competence — the progression system tied to artefact quality and decision correctness makes SA&D competence visibly and meaningfully linked to Satzinger methodology mastery. Relatedness — team SA mode and post-session artefact or outcome comparison create shared discussion around COM4061 SA&D methodology that builds cohort systems analysis culture. Through the Octalysis lens, the dominant Core Drives are Development & Accomplishment (character/system growth), Challenge (NPC inconsistency or game events require genuine SA reasoning), Discovery, and Social Influence.",
+    "personaList": "Persona 1 — The SA Methodologist: Deep Satzinger SDLC knowledge. Applies formal SA&D techniques at every normalisation puzzle stage. Produces consistent, complete artefacts or decisions in correct methodology sequence.\n\nPersona 2 — The Intuitive Analyst: Moderate SA theory. Approaches normalisation puzzle challenges through conversational or exploratory reasoning rather than formal Satzinger technique. Discovers methodology gaps through artefact or decision feedback in post-session debrief.\n\nPersona 3 — The UML Perfectionist: Strong UML notation knowledge. Prioritises artefact diagram correctness over coverage speed. May spend excessive time on artefact formatting over the completeness requirements of the overall system model.",
+    "playerPersonas": [
+      {
+        "name": "The SA Methodologist",
+        "description": "Applies Satzinger SDLC methodology systematically. Motivated by complete, high-quality artefact or decision baseline. Strong COM4061 theoretical foundation from coursework.",
+        "motivations": [
+          "Complete all Satzinger SDLC phases with full artefact consistency",
+          "Earn SA Champion badge for highest quality score",
+          "Top team leaderboard as Systems Analyst in paired mode"
+        ],
+        "challenges": [
+          "Needs game mechanics or validators to reflect Satzinger methodology accurately",
+          "Over-methodical approach may exhaust session time before final boss challenge"
+        ]
+      },
+      {
+        "name": "The UML Perfectionist",
+        "description": "Strong UML notation focus. Prioritises artefact diagram correctness over elicitation or coverage breadth. May produce impeccable artefacts from incomplete system requirements.",
+        "motivations": [
+          "Achieve zero notation errors on all UML artefacts",
+          "Earn UML Expert badge for flawless artefact diagrams",
+          "Complete each challenge stage with full notation compliance before advancing"
+        ],
+        "challenges": [
+          "Notation perfection without coverage completeness produces technically correct but inadequate artefacts",
+          "Needs explicit validator feedback distinguishing notation errors from coverage gaps"
+        ]
+      }
+    ],
+    "narrativeEvolution": "Arc 1 — Entry and Orientation\n\nThe player enters the damaged archive as a Junior Analyst and learns that several system worlds have collapsed. The first mission introduces the restoration process through a simpler domain: the café order system.\n\nArc 2 — Recovery and Mastery\n\nThe player restores increasingly complex systems by solving structured puzzle rooms and reconnecting missing fragments. As more rooms are illuminated, the archive begins to stabilise, and the player advances from Junior Analyst to higher professional ranks.\n\nArc 3 — Integration and Completion\n\nIn the final stages, the player is no longer solving isolated fragments but rebuilding complete interconnected systems. The journey ends when the major archive worlds are restored and the player proves mastery by reactivating the central archive core.",
+    "rewardStructure": {
+      "elite": "Database Architect badge + 'Normalisation Expert' certificate for completing BCNF Boss Room with zero hints used",
+      "professional": "Database Scholar badge + leaderboard recognition for reaching BCNF tier and completing Boss Room with ≤1 hint token",
+      "access": "Participation certificate + 'Data Apprentice' badge for correctly completing ≥3 normal form tiers with ≤2 hints used"
+    },
+    "rewardStructureDetail": {
+      "intrinsic": [
+        "Precise satisfaction of correctly solving functional dependency puzzles — a depth of normalisation understanding that abstract knowledge cannot demonstrate",
+        "Genuine schema normalisation skill developed through step-level execution validation rather than name-recognition testing",
+        "Social recognition from class speed-normalise competitions and efficiency leaderboard comparison across sessions"
+      ],
+      "extrinsic": {
+        "teamBased": [
+          {
+            "badge": "Class Normalisation Champions",
+            "trigger": "Class-wide session highest aggregate normalisation depth reached",
+            "type": "Class Achievement"
+          },
+          {
+            "badge": "Pair Normalisation Champions",
+            "trigger": "Pair mode duo completing BCNF Boss Room with zero hints in minimum time",
+            "type": "Team Badge"
+          }
+        ],
+        "individual": [
+          {
+            "badge": "BCNF Master",
+            "trigger": "Completing BCNF Boss Room with zero hints on first attempt",
+            "points": 100
+          },
+          {
+            "badge": "Speed Normaliser",
+            "trigger": "Winning class speed-normalise challenge event",
+            "points": 60
+          },
+          {
+            "badge": "Sandbox Schema Explorer",
+            "trigger": "Completing all available schema explorations in sandbox mode",
+            "points": 30
+          },
+          {
+            "badge": "Functional Dependency Expert",
+            "trigger": "Correctly identifying all functional dependencies across an entire normal form tier without hints",
+            "points": 70
+          }
+        ]
+      }
+    },
+    "socialInteraction": {
+      "collaboration": "Pair normalisation mode assigns functional dependency identification to one student and schema transformation to the other — creating complementary collaboration that ensures both students engage both analytical and design layers.",
+      "competition": "Class speed-normalise challenge creates simultaneous competitive puzzle solving visible to all students; normalisation depth and hint-efficiency leaderboard drives sustained inter-session competitive engagement.",
+      "communityBuilding": "Post-session puzzle comparison where students share different normalisation approaches to the same schema builds shared COM4061 database theory knowledge; diverse strategies generate rich peer discussion."
+    },
+    "conceptualMap": [
+      {
+        "concept": "Normal Form Hierarchy",
+        "mechanic": "Puzzle Chain (1NF → BCNF)",
+        "description": "Four-tier puzzle chain directly maps to the COM4061 relational database normalisation hierarchy — 1NF, 2NF, 3NF, BCNF — in correct theoretical progression order.",
+        "courseReference": "Satzinger Ch 17: Relational Database Normalisation"
+      },
+      {
+        "concept": "Functional Dependencies",
+        "mechanic": "Step-Level Validation",
+        "description": "Step-level validation forces identification and resolution of specific functional dependency violations — the core Satzinger normalisation skill of reasoning at the attribute-level, not the table-level.",
+        "courseReference": "Satzinger Ch 17: Functional Dependencies and Normal Forms"
+      },
+      {
+        "concept": "Partial Dependencies",
+        "mechanic": "2NF Chamber Puzzles",
+        "description": "2NF chamber puzzles specifically target partial functional dependency identification — the most common normalisation reasoning error in COM4061, operationalised as a locked door requiring precise identification.",
+        "courseReference": "Satzinger Ch 17: Second Normal Form"
+      },
+      {
+        "concept": "Transitive Dependencies",
+        "mechanic": "3NF Corridor Puzzles",
+        "description": "3NF corridor puzzles require transitive dependency chain identification and elimination — operationalising Satzinger's 3NF definition as a spatial puzzle requiring sequential reasoning.",
+        "courseReference": "Satzinger Ch 17: Third Normal Form"
+      },
+      {
+        "concept": "Candidate Key Analysis",
+        "mechanic": "BCNF Boss Room",
+        "description": "BCNF Boss Room requires identifying non-candidate-key determinants — the most advanced normalisation concept in COM4061, requiring full understanding of candidate key definition and determinant analysis.",
+        "courseReference": "Satzinger Ch 17: Boyce-Codd Normal Form"
+      }
+    ],
+    "leaderboardDetails": {
+      "display": [
+        "Student Name",
+        "Total XP",
+        "Badges Earned",
+        "Session Rank",
+        "Personal XP % = (player XP / total class XP) × 100",
+        "SA&D Normalisation Score"
+      ],
+      "personalFormula": "Personal XP % = (player XP / total class XP) × 100",
+      "classWideMetrics": [
+        "Class average SA&D Normalisation accuracy",
+        "Top XP earner per session",
+        "Most improved XP across sessions",
+        "Average session completion rate"
+      ],
+      "recognition": "Session leaders earn bonus XP and leaderboard recognition",
+      "updateFrequency": "Real-time update after each phase; final standing after session end"
+    },
+    "continuousImprovements": [
+      {
+        "name": "Adaptive SA Difficulty",
+        "description": "Implement algorithm-driven difficulty adjustment that scales database normalisation challenge complexity per student based on demonstrated COM4061 Satzinger SA&D knowledge, ensuring appropriate challenge across all skill levels.",
+        "category": "Game Design"
+      },
+      {
+        "name": "Satzinger Ontology Integration",
+        "description": "Extend the puzzle escape room challenge pool using a formal Satzinger SDLC phase ontology, enabling systematic verification that all COM4061 SA&D topics are covered proportionally across sessions.",
+        "category": "Ontology Engineering"
+      },
+      {
+        "name": "LLM SA Coach",
+        "description": "Integrate an LLM-powered coaching layer that generates Satzinger-referenced hints and explanations for database normalisation decisions, reducing facilitator dependency for in-session SA&D guidance.",
+        "category": "AI/ML Enhancement"
+      },
+      {
+        "name": "Cross-Session SA Analytics",
+        "description": "Implement longitudinal tracking of database normalisation Satzinger knowledge across multiple sessions to identify persistent SA&D misconceptions and generate targeted COM4061 review recommendations.",
+        "category": "Analytics"
+      },
+      {
+        "name": "SA Assessment Export",
+        "description": "Add certified assessment mode exporting individual Satzinger SA&D knowledge profiles as grade-ready reports aligned to COM4061 course learning outcomes with chapter references.",
+        "category": "Infrastructure"
+      }
+    ],
+    "dur_preDesign": "2 weeks",
+    "dur_design": "2 weeks",
+    "dur_impl": "4 weeks",
+    "dur_ops": "2 weeks",
+    "dur_post": "1 weeks",
+    "socialRationale": "The project is primarily a single-player serious game, so social interaction should support learning rather than distract from it. Multi-category leaderboards can recognise different strengths such as total restoration score, fastest completion, lowest hint usage, or best boss completion, which is more inclusive than a single global ranking. Peer mentoring and classroom discussion can help students compare diagram logic, reflect on mistakes, and learn alternative problem-solving strategies.\n\nA lightweight peer analytics dashboard can show progress indicators such as completed scenarios, room mastery, or diagram type strengths without exposing unnecessary personal data. Smart notifications can remind players about incomplete scenarios, unlocked ranks, or available review opportunities. If included, discussion forums should be topic-based, such as Café System, School System, Clinic System, or Diagram Help, to keep interaction focused and academically useful.",
+    "communityStandards": "All player interaction must remain respectful, constructive, and academically relevant. Personal attacks, mocking lower-performing players, spam, or off-topic behaviour are not allowed. Any discussion or comparison should focus on puzzle logic, strategy, and learning outcomes rather than personal judgment. If social features are implemented, flagged content should be reviewed by a moderator or facilitator, and leaderboard participation should include an opt-out option to reduce pressure.",
+    "currencyName": "Archive Credits",
+    "pricingModel": "Archive Credits can be used for optional cosmetic or support rewards such as profile themes, archive frames, additional hint tokens, or lore unlocks. High-status cosmetic rewards can be limited in quantity or unlocked only after boss completion, while accessibility rewards remain permanently affordable so that all players can benefit from the reward system. This creates light scarcity for prestige items without restricting core learning access.",
+    "adaptiveDifficulty": "The system can adapt challenge level based on player performance, retry count, and hint usage. If a player repeatedly fails a room, the game can offer a lighter hint, reduce puzzle complexity slightly, or reveal one validated diagram element to keep progress moving. If a player performs very well, later rooms can include fewer hints, more distractor elements, or slightly more complex boss integration tasks.",
+    "personalisation": "The game can personalise support by tracking which diagram types the player struggles with most and suggesting targeted review opportunities. For example, a player who frequently needs help in Sequence rooms could receive additional flow-related clues, while a player who performs well in Database rooms could unlock harder optional variants. The system can also personalise cosmetic identity through rank-based profile frames, archive themes, or role labels such as Junior Analyst, Senior Analyst, and System Architect.",
+    "lbCategories": [
+      "Improvement Rate"
+    ],
+    "wf_dash": "+--------------------------------------------------------------+\n| SYSTEM ARCHIVE: LEADERBOARD                                  |\n+--------------------------------------------------------------+\n| [Scenario: Café ▼]   [Category: Total Score ▼]   [Week 3]    |\n| [My Rank] [All Categories] [Opt-Out Settings]                |\n+--------------------------------------------------------------+\n| Rank | Player        | Score | Hints Used | Rooms | Status   |\n|--------------------------------------------------------------|\n| 1    | PLR_A17       | 840   | 0          | 5/5   | Restored |\n| 2    | PLR_B09       | 790   | 1          | 5/5   | Restored |\n| 3    | PLR_C22       | 760   | 2          | 5/5   | Restored |\n| ...                                                      ... |\n+--------------------------------------------------------------+\n| Category Tabs: [Total Score] [Hint Efficiency] [Improvement] |\n+--------------------------------------------------------------+\n| Footer: \"Leaderboards recognise different strengths, not     |\n| only raw score.\"                                             |\n+--------------------------------------------------------------+",
+    "wf_asset": "+--------------------------------------------------------------+\n| PLAYER PROFILE                                               |\n+--------------------------------------------------------------+\n| Player ID: PLR_A17            Rank: Mid-Level Analyst        |\n| Current Scenario: School      Total Archive Credits: 420     |\n+--------------------------------------------------------------+\n| Progress Overview                                             |\n| [Café: Restored] [School: In Progress] [Clinic: Locked]      |\n+--------------------------------------------------------------+\n| Diagram Mastery                                               |\n| Use Case     : ████████ 80%                                  |\n| Class/Domain : ██████   60%                                  |\n| Sequence     : ███████  70%                                  |\n| Database     : █████    50%                                  |\n+--------------------------------------------------------------+\n| Achievements                                                  |\n| [First Light] [Use Case Seeker] [System Rebuilder]           |\n+--------------------------------------------------------------+\n| Recent Activity                                               |\n| - Solved café_usecase_room (+100)                            |\n| - Used hint in school_sequence_room (-15 bonus)              |\n| - Unlocked Mid-Level Analyst                                 |\n+--------------------------------------------------------------+",
+    "wf_portfolio": "+------------------------------------------------------------------+\n| FACILITATOR ANALYTICS DASHBOARD                                  |\n+------------------------------------------------------------------+\n| Session: Week 3            Scenario: School Management System     |\n| Active Players: 28         Avg Completion: 72%                   |\n+------------------------------------------------------------------+\n| Class Metrics                                                     |\n| - Avg Total Score: 645                                            |\n| - Avg Hints Used: 1.8                                             |\n| - Most Failed Room: school_database_room                          |\n| - Boss Completion Rate: 61%                                       |\n+------------------------------------------------------------------+\n| Room Performance                                                  |\n| Room ID                 | Completion % | Avg Score | Avg Retries |\n|------------------------------------------------------------------|\n| school_usecase_room     | 89%          | 92        | 1.1         |\n| school_class_room       | 76%          | 84        | 1.6         |\n| school_sequence_room    | 71%          | 79        | 1.9         |\n| school_database_room    | 58%          | 68        | 2.3         |\n+------------------------------------------------------------------+\n| Alerts                                                            |\n| - 6 players used >3 hints                                         |\n| - Database room may require balancing                             |\n| - 4 players stopped before boss stage                             |\n+------------------------------------------------------------------+\n| [Export Logs] [View Session Summary] [Reset Weekly Leaderboard]   |\n+------------------------------------------------------------------+",
+    "lbVisibility": "Public (opt-out available)",
+    "lbReset": "Seasonal (per sprint)",
+    "dcMethods": {
+      "dc_auto": true,
+      "dc_focus": true,
+      "dc_interview": true,
+      "dc_log": true,
+      "dc_prepost": true,
+      "dc_survey": true
+    }
+  }
+}
